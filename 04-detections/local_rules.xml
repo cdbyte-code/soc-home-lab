@@ -1,0 +1,17 @@
+<group name="local,custom,sshd,">
+  <rule id="100101" level="12" frequency="6" timeframe="30">
+    <if_matched_sid>5760</if_matched_sid>
+    <same_source_ip />
+    <description>Custom: SSH brute force, 6+ failed logins from one IP in 30s (possible Hydra)</description>
+    <mitre><id>T1110</id></mitre>
+    <group>authentication_failures,</group>
+  </rule>
+</group>
+
+<group name="local,suricata,tuning,">
+  <rule id="100200" level="0">
+    <if_sid>86601</if_sid>
+    <match>Python SimpleHTTP</match>
+    <description>Tuning: suppress benign ET INFO Python SimpleHTTP banner from the lab web server</description>
+  </rule>
+</group>
